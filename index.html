@@ -37,6 +37,78 @@
     [data-half]{min-height:0 !important}
     [data-brandwrap]{top:50% !important;transform:translate(-50%,-50%) !important;animation:none !important}
   }
+/* ==========================
+   INDEX MOBILE CLEANUP
+========================== */
+
+@media (max-width:768px){
+
+  /* Hero principal */
+  [data-hero-copy]{
+    width:90% !important;
+    max-width:360px !important;
+    margin:auto !important;
+  }
+
+  /* Título principal */
+  h1{
+    font-size:52px !important;
+    line-height:1.05 !important;
+  }
+
+  /* Texto descriptivo */
+  [data-hero-copy] p{
+    font-size:18px !important;
+    line-height:1.6 !important;
+  }
+
+  /* Botón principal */
+  [data-maincta]{
+    width:85% !important;
+    max-width:320px !important;
+    margin:30px auto !important;
+    padding:18px 24px !important;
+  }
+
+  /* Elimina el medallón dorado central */
+  [data-seal],
+  [data-emblem-center],
+  [data-coin]{
+    display:none !important;
+  }
+
+  /* Reduce altura del hero */
+  [data-hero]{
+    min-height:90vh !important;
+  }
+
+  /* Sección Wedding Planner */
+  [data-pro-section]{
+    min-height:90vh !important;
+  }
+
+  /* Oscurece imagen para que el texto se lea mejor */
+  [data-pro-section]::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:1;
+  }
+
+  [data-pro-section] > *{
+    position:relative;
+    z-index:2;
+  }
+
+  /* Botón portafolio */
+  [data-portfolio-btn]{
+    width:85% !important;
+    max-width:320px !important;
+    margin:25px auto !important;
+  }
+
+}
 </style>
 </helmet>
 
