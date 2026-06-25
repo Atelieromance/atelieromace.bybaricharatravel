@@ -43,6 +43,73 @@
   @media(max-width:900px){[data-fmtgrid]{grid-template-columns:repeat(2,1fr) !important}[data-stack]{grid-template-columns:1fr !important}[data-pilgrid]{grid-template-columns:repeat(2,1fr) !important}[data-appgrid]{grid-template-columns:1fr !important}}
   @media(max-width:720px){[data-switchlink]{display:none !important}}
   @media(max-width:600px){[data-fmtgrid]{grid-template-columns:1fr !important}[data-form]{grid-template-columns:1fr !important}[data-pilgrid]{grid-template-columns:1fr !important}}
+/* ===========================
+   MOBILE RESPONSIVE
+=========================== */
+
+@media (max-width: 768px){
+
+  /* HEADER */
+  [data-header]{
+    padding:14px 18px !important;
+  }
+
+  [data-brand]{
+    transform:scale(.85);
+    transform-origin:left center;
+  }
+
+  [data-cta]{
+    padding:12px 18px !important;
+    font-size:13px !important;
+    letter-spacing:.12em !important;
+  }
+
+  /* TITULOS */
+  h1{
+    font-size:48px !important;
+    line-height:1.08 !important;
+  }
+
+  h2{
+    font-size:42px !important;
+    line-height:1.12 !important;
+  }
+
+  /* HERO */
+  [data-hero-copy]{
+    width:92% !important;
+    padding:0 20px !important;
+  }
+
+  /* STICKERS DECORATIVOS */
+  [data-sticker],
+  [data-decor],
+  [data-floating]{
+    transform:scale(.55) !important;
+    opacity:.85 !important;
+  }
+
+  /* CARDS */
+  [data-card]{
+    padding:24px !important;
+  }
+
+  /* APP MOCKUP */
+  [data-phone]{
+    width:100% !important;
+    max-width:340px !important;
+    margin:auto !important;
+  }
+
+  /* FORMULARIOS */
+  input,
+  textarea,
+  select{
+    font-size:16px !important;
+  }
+
+}
 </style>
 </helmet>
 
