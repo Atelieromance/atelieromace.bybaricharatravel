@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;family=Pinyon+Script&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;background:#F5EFE4}
+  body{font-family:'Jost',sans-serif;background:#F5EFE4;color:#1C1813;-webkit-font-smoothing:antialiased}
+  ::selection{background:#C7A052;color:#1C1813}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  input,select,textarea{font-family:inherit}
+  @keyframes fadeup{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes cardfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes wpScroll{0%{opacity:0;transform:translateY(-2px)}45%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+  @keyframes wpKen{0%{transform:scale(1.001)}100%{transform:scale(1.08)}}
+  @keyframes swing{0%,100%{transform:rotate(-2.2deg)}50%{transform:rotate(2.2deg)}}
+  @keyframes navorbit{to{transform:rotate(360deg)}}
+  @keyframes ctaBreath{0%,100%{box-shadow:0 6px 18px rgba(199,160,82,.18)}50%{box-shadow:0 11px 32px rgba(199,160,82,.48)}}
+  @keyframes ctaBreathGhost{0%,100%{box-shadow:0 0 0 rgba(216,184,106,0)}50%{box-shadow:0 7px 24px rgba(216,184,106,.26)}}
+  @keyframes stkA{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-13px) rotate(3deg)}}
+  @keyframes actKen{0%{transform:scale(1.001)}100%{transform:scale(1.09)}}
+  @keyframes capIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes swIn{from{opacity:0;transform:translateY(12px) scale(.78)}to{opacity:1;transform:translateY(0) scale(1)}}
+  @keyframes promKen{0%{transform:scale(1.02)}100%{transform:scale(1.14)}}
+  @keyframes rococoPulse{0%,100%{opacity:.34;filter:drop-shadow(0 0 0 rgba(255,255,255,0))}50%{opacity:.72;filter:drop-shadow(0 0 6px rgba(255,255,255,.4))}}
+  @keyframes twinkle{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.18)}}
+  @keyframes appPop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes glowPulse{0%,100%{opacity:.4;transform:translate(-50%,-50%) scale(.95)}50%{opacity:.72;transform:translate(-50%,-50%) scale(1.06)}}
+  ::-webkit-scrollbar{width:9px}::-webkit-scrollbar-track{background:rgba(245,239,229,.96)}::-webkit-scrollbar-thumb{background:#cdbba0;border-radius:4px}
+  @media(max-width:980px){[data-navlinks]{display:none !important}}
+  @media(max-width:900px){[data-fmtgrid]{grid-template-columns:repeat(2,1fr) !important}[data-stack]{grid-template-columns:1fr !important}[data-pilgrid]{grid-template-columns:repeat(2,1fr) !important}[data-appgrid]{grid-template-columns:1fr !important}}
+  @media(max-width:720px){[data-switchlink]{display:none !important}}
+  @media(max-width:600px){[data-fmtgrid]{grid-template-columns:1fr !important}[data-form]{grid-template-columns:1fr !important}[data-pilgrid]{grid-template-columns:1fr !important}}
+</style>
+</helmet>
+
+<div style="position:relative;width:100%;overflow:hidden;background:transparent">
+
+  <!-- ============ NAV ============ -->
+  <nav data-nav="" style="position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,4vw,56px);transition:background .5s ease,padding .5s ease,box-shadow .5s ease;background:rgba(251,247,240,.70);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)">
+    <a href="Atelier%20Romance%20Entrada.dc.html" style="display:flex;align-items:center;gap:13px">
+      <img src="brand/emblem-ink.png" alt="" style="height:38px;width:auto;opacity:.92">
+      <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;letter-spacing:.26em;text-transform:uppercase;color:#241c14">Atelier Romance</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:clamp(14px,2.4vw,30px)">
+      <div data-navlinks="" style="display:flex;gap:clamp(14px,2.4vw,28px);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#4a3e2e">
+        
+        
+      </div>
+      <a href="Atelier%20Final.dc.html" onClick="{{ goPlanner }}" data-switchlink="" style="display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9E5A3C;border:1px solid rgba(158,90,60,.4);padding:9px 15px;border-radius:40px;transition:background .3s,color .3s" style-hover="background:rgba(158,90,60,.1);color:#7a4631">{{ t.navPlanner }}</a>
+      <div style="display:flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.12em">
+        <button onClick="{{ setEs }}" style="{{ esBtnStyle }}">ES</button>
+        <span style="opacity:.4">·</span>
+        <button onClick="{{ setEn }}" style="{{ enBtnStyle }}">EN</button>
+      </div>
+      <a href="https://cal.com/atelieromance.bybaricharatravel/primera-cita" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;white-space:nowrap;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1C1813;background:#C7A052;padding:11px 22px;border-radius:1px;transition:transform .3s,box-shadow .3s,filter .3s" onMouseEnter="{{ ctaHov }}" onMouseLeave="{{ ctaUnhov }}">{{ t.navCita }}</a>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" style="position:relative;height:100vh;min-height:660px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center">
+    <div style="position:absolute;inset:0;z-index:0;background:rgba(252,248,242,.95)">
+      <video autoplay="" muted="" loop="" playsinline="" preload="auto" style="width:100%;height:100%;object-fit:cover;object-position:center 35%">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,16,12,.42) 0%,transparent 22%,transparent 52%,rgba(20,16,12,.72) 100%)"></div>
+    <div style="position:relative;z-index:2;width:100%;max-width:1100px;margin:0 auto;padding:0 clamp(22px,5vw,64px)">
+      <div style="display:flex;align-items:center;justify-content:center;gap:13px;margin-bottom:20px">
+        <span style="width:42px;height:1px;background:#C7A052"></span>
+        <span style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#D8B86A">{{ t.heroKicker }}</span>
+        <span style="width:42px;height:1px;background:#C7A052"></span>
+      </div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.0;letter-spacing:-.01em;font-size:clamp(38px,5.6vw,86px);color:#F6F0E5;max-width:18ch;margin:0 auto">{{ t.heroLine1 }} {{ t.heroLine2a }} <span style="font-family:'Pinyon Script',cursive;font-weight:400;color:#D8B86A;font-size:1.12em">{{ t.heroScript }}</span> {{ t.heroLine2b }}</h1>
+      <p style="margin:26px auto 0;max-width:60ch;font-size:clamp(15px,1.25vw,18px);font-weight:300;line-height:1.8;color:#e7ddcb">{{ t.heroSub }}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:40px;align-items:center;justify-content:center">
+        <a href="https://cal.com/atelieromance.bybaricharatravel/primera-cita" target="_blank" rel="noopener" style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#1C1813;background:#C7A052;padding:16px 36px;border-radius:1px;transition:transform .3s,box-shadow .3s,filter .3s" onMouseEnter="{{ ctaHov }}" onMouseLeave="{{ ctaUnhov }}">{{ t.heroCta1 }}</a>
+        <a href="#experiencia" style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#FBF5E9;border:1px solid rgba(251,245,233,.6);padding:16px 30px;border-radius:1px;transition:border-color .3s,background .3s,transform .3s" onMouseEnter="{{ ghostHov }}" onMouseLeave="{{ ghostUnhov }}">{{ t.heroCta2 }}</a>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px">
+      <span style="font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#cdbfa8">{{ t.heroScroll }}</span>
+      <div style="width:1px;height:42px;background:linear-gradient(#C7A052,transparent);animation:wpScroll 2.4s ease-in-out infinite"></div>
+    </div>
+  </section>
+
+  <!-- ============ MANIFIESTO ============ -->
+  <section id="experiencia" style="position:relative;padding:clamp(60px,9vh,120px) clamp(22px,5vw,64px);background:rgba(252,248,242,.96)">
+    <img src="assets/stickers/driedflower.png" alt="" aria-hidden="true" style="position:absolute;top:54px;right:7%;width:90px;z-index:0;opacity:.92;pointer-events:none;filter:drop-shadow(0 9px 16px rgba(60,45,28,.16));animation:stkA 9s ease-in-out infinite"><img src="assets/stickers/driedflower.png" alt="" aria-hidden="true" style="position: absolute; top: 385px; width: 90px; z-index: 0; opacity: .92; pointer-events: none; filter: drop-shadow(0 9px 16px rgba(60,45,28,.16)); animation: stkA 9s ease-in-out infinite; left: 115px">
+    <div data-reveal="" style="max-width:900px;margin:0 auto;text-align:center">
+      <div style="font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#A67C2E;margin-bottom:16px">{{ t.mfKicker }}</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,4vw,56px);line-height:1.12;color:#241c14;letter-spacing:-.01em">{{ t.mfTitle }}</h2>
+      <p style="margin:26px auto 0;max-width:60ch;font-size:clamp(15px,1.25vw,18px);font-weight:300;line-height:1.85;color:#695b47">{{ t.mfBody1 }}</p>
+      <p style="margin:18px auto 0;max-width:60ch;font-size:clamp(15px,1.25vw,18px);font-weight:300;line-height:1.85;color:#695b47">{{ t.mfBody2 }}</p>
+    </div>
+  </section>
+
+  <!-- ============ PILARES ============ -->
+  <section style="position:relative;padding:clamp(56px,8vh,104px) clamp(22px,5vw,64px);background:rgba(247,242,233,.94);border-top:1px solid rgba(199,160,82,.12);border-bottom:1px solid rgba(199,160,82,.12)">
+    
+    <div data-reveal="" style="max-width:1120px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:clamp(40px,6vh,60px)">
+        <div style="font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#A67C2E;margin-bottom:14px">{{ t.pilKicker }}</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,3.8vw,52px);color:#241c14;letter-spacing:-.01em">{{ t.pilTitle }}</h2>
+      </div>
+      <div data-pilgrid="" style="display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,1.6vw,22px)">
+        <sc-for list="{{ pilares }}" as="p" hint-placeholder-count="5">
+          <div onMouseEnter="{{ p.hov }}" onMouseLeave="{{ p.unhov }}" style="{{ p.cardStyle }}">
+            <img src="assets/stickers/presseddaisy.png" alt="" aria-hidden="true" style="{{ p.stickerStyle }}">
+            <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+              <span style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#9E5A3C;border:1px solid rgba(158,90,60,.35);background:rgba(255,255,255,.5);padding:5px 10px;border-radius:40px">{{ p.tag }}</span>
+              <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:#c2b39a">{{ p.n }}</span>
+            </div>
+            <h3 style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(18px,1.4vw,21px);color:#241c14;line-height:1.2;margin-bottom:10px">{{ p.title }}</h3>
+            <p style="position:relative;z-index:1;font-size:13px;font-weight:300;line-height:1.65;color:#6e604c;flex:1">{{ p.desc }}</p>
+            <div style="position:relative;z-index:1;margin-top:18px;padding-top:14px;border-top:1px solid rgba(199,160,82,.25);display:flex;align-items:center;gap:8px">
+              <span style="width:7px;height:7px;background:#C7A052;transform:rotate(45deg)"></span>
+              <span style="font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#a08a63">Atelier Romance</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOS 4 ACTOS ============ -->
+  <section id="actos" style="position:relative;padding:clamp(56px,8vh,104px) clamp(22px,5vw,64px);background:rgba(252,248,242,.96)">
+    <img src="assets/stickers/mapheart.png" alt="" aria-hidden="true" style="position:absolute;top:56px;right:6%;width:84px;z-index:0;opacity:.92;pointer-events:none;filter:drop-shadow(0 9px 16px rgba(60,45,28,.16));animation:stkA 9.5s ease-in-out infinite">
+    
+    <div data-reveal="" style="max-width:1200px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:clamp(40px,6vh,60px)">
+        <div style="font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: #A67C2E; margin-bottom: 14px; position: relative">{{ t.actKicker }}<img src="assets/stickers/pocketclock.png" alt="" aria-hidden="true" style="position: absolute; left: 19px; width: 66px; z-index: 0; opacity: .9; pointer-events: none; filter: drop-shadow(0 9px 16px rgba(60,45,28,.16)); animation: stkA 10.5s ease-in-out infinite; top: -24px"></div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,4vw,54px);color:#241c14;letter-spacing:-.01em">{{ t.actTitle }}</h2>
+      </div>
+      <div data-stack="" style="display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4vw,64px);align-items:center">
+        <div onMouseEnter="{{ pauseActs }}" onMouseLeave="{{ playActs }}" style="position:relative;overflow:hidden;border-radius:3px;aspect-ratio:4/4.6;box-shadow:0 30px 64px rgba(60,45,28,.22)">
+          <div style="position:absolute;inset:0;overflow:hidden"><div data-actimg="" style="{{ activeAct.imgStyle }}"></div></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(20,16,12,.78))"></div>
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:rgba(255,255,255,.16);z-index:2"><div data-actprog="" style="height:100%;background:#D8B86A;width:0"></div></div>
+          <div style="position:absolute;top:15px;right:18px;z-index:2;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.22em;color:rgba(246,240,229,.82)">{{ activeAct.counter }}</div>
+          <div data-actcaption="" style="position:absolute;left:0;right:0;bottom:0;z-index:2;padding:clamp(24px,2.4vw,38px)">
+            <div style="font-family:'Pinyon Script',cursive;font-size:34px;color:#D8B86A;line-height:1">{{ activeAct.script }}</div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,2.4vw,34px);color:#F6F0E5">{{ activeAct.name }}</h3>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ acts }}" as="a" hint-placeholder-count="4">
+            <button onClick="{{ a.onSelect }}" onMouseEnter="{{ a.hov }}" onMouseLeave="{{ a.unhov }}" style="{{ a.tabStyle }}">
+              <span style="display:flex;align-items:baseline;gap:14px">
+                <span style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#A67C2E;flex:none">{{ a.num }}</span>
+                <span style="flex:1">
+                  <span style="display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(19px,1.5vw,23px);font-weight:500;color:#241c14;margin-bottom:4px">{{ a.name }}</span>
+                  <span style="display:block;font-size:13.5px;font-weight:300;line-height:1.6;color:#7a6c56">{{ a.desc }}</span>
+                </span>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROMESA (2 cards) ============ -->
+  <section style="position:relative;padding:clamp(56px,8vh,104px) clamp(22px,5vw,64px);background:rgba(247,242,233,.94);border-top:1px solid rgba(199,160,82,.12)">
+    <div data-reveal="" style="max-width:1120px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:clamp(36px,5vh,52px)">
+        <div style="font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#A67C2E;margin-bottom:14px">{{ t.pqKicker }}</div>
+        <h2 style="font-family: 'Cormorant Garamond',serif; font-weight: 300; font-size: clamp(30px,3.8vw,52px); color: #241c14; position: relative">{{ t.pqTitle }}<img src="assets/stickers/butterfly.png" alt="" aria-hidden="true" style="position: absolute; top: -38px; width: 74px; z-index: 1; opacity: .9; pointer-events: none; filter: drop-shadow(0 9px 16px rgba(60,45,28,.16)); animation: stkA 9s ease-in-out infinite; left: 9px"><img src="assets/stickers/butterfly.png" alt="" aria-hidden="true" style="position: absolute; top: -32px; width: 74px; z-index: 1; opacity: .9; pointer-events: none; filter: drop-shadow(0 9px 16px rgba(60,45,28,.16)); animation: stkA 9s ease-in-out infinite; left: 1050px"></h2>
+      </div>
+      
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.4vw,34px)" data-stack="">
+        <div onMouseEnter="{{ promHov }}" onMouseLeave="{{ promUnhov }}" style="position:relative;overflow:hidden;border-radius:2px;aspect-ratio:4/3.4;box-shadow:0 18px 44px rgba(60,45,28,.14);transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s ease">
+          <img src="assets/photos/foto7.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 26%;animation:promKen 17s ease-in-out infinite alternate">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.15),rgba(20,16,12,.9))"></div>
+          <span data-shine="" aria-hidden="true" style="position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.3) 50%,transparent 62%);transform:translateX(-130%);transition:transform 1s ease"></span>
+          <div data-promtext="" style="position:absolute;left:0;right:0;bottom:0;z-index:3;padding:clamp(24px,2.4vw,38px);transition:transform .6s ease">
+            <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#D8B86A;margin-bottom:10px">{{ t.pq1Tag }}</div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,2.4vw,34px);color:#F6F0E5;margin-bottom:10px">{{ t.pq1Title }}</h3>
+            <p style="font-size:14px;font-weight:300;line-height:1.7;color:#dccfba;max-width:42ch">{{ t.pq1Desc }}</p>
+          </div>
+        </div>
+        <div onMouseEnter="{{ promHov }}" onMouseLeave="{{ promUnhov }}" style="position:relative;overflow:hidden;border-radius:2px;aspect-ratio:4/3.4;box-shadow:0 18px 44px rgba(60,45,28,.14);transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s ease">
+          <img src="assets/photos/novia-velo.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;animation:promKen 19s ease-in-out infinite alternate">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.15),rgba(20,16,12,.9))"></div>
+          <span data-shine="" aria-hidden="true" style="position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.3) 50%,transparent 62%);transform:translateX(-130%);transition:transform 1s ease"></span>
+          <div data-promtext="" style="position:absolute;left:0;right:0;bottom:0;z-index:3;padding:clamp(24px,2.4vw,38px);transition:transform .6s ease">
+            <div style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#D8B86A;margin-bottom:10px">{{ t.pq2Tag }}</div>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,2.4vw,34px);color:#F6F0E5;margin-bottom:10px">{{ t.pq2Title }}</h3>
+            <p style="font-size:14px;font-weight:300;line-height:1.7;color:#dccfba;max-width:42ch">{{ t.pq2Desc }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FORMATOS DE ESTANCIA ============ -->
+  <section id="formatos" style="position:relative;padding:clamp(56px,8vh,104px) clamp(22px,5vw,64px);background:rgba(252,248,242,.96)">
+    <img src="assets/stickers/driedflower.png" alt="" aria-hidden="true" style="position:absolute;top:50px;right:7%;width:88px;z-index:0;opacity:.9;pointer-events:none;filter:drop-shadow(0 9px 16px rgba(60,45,28,.16));animation:stkA 8.8s ease-in-out infinite">
+    <div data-reveal="" style="max-width:1120px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:clamp(40px,6vh,60px)">
+        <div style="font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#A67C2E;margin-bottom:14px">{{ t.fmKicker }}</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,4vw,54px);color:#241c14;letter-spacing:-.01em">{{ t.fmTitle }}</h2>
+        <p style="max-width:58ch;margin:18px auto 0;font-size:15px;font-weight:300;line-height:1.7;color:#7a6c56">{{ t.fmIntro }}</p>
+      </div>
+      <div data-fmtgrid="" style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.5vw,22px);align-items:start">
+        <sc-for list="{{ formats }}" as="f" hint-placeholder-count="4">
+          <button onMouseEnter="{{ f.onHover }}" onMouseLeave="{{ f.onLeave }}" style="{{ f.cardStyle }}">
+            <span style="{{ f.accentStyle }}"></span>
+            <sc-if value="{{ f.insignia }}" hint-placeholder-val="{{ true }}"><span style="display:inline-block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#1C1813;background:#C7A052;padding:4px 10px;border-radius:40px;margin-bottom:12px">★&nbsp; {{ t.fmInsignia }}</span></sc-if>
+            <span style="display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,1.7vw,26px);color:#241c14;line-height:1.06">{{ f.name }}</span>
+            <span style="{{ f.durStyle }}">{{ f.duration }}</span>
+            <span style="display:block;font-size:13.5px;font-weight:300;line-height:1.65;color:#7a6c56;margin-top:14px">{{ f.desc }}</span>
+            <span style="{{ f.infoStyle }}">
+              <span style="display:flex;flex-direction:column;gap:9px;border-top:1px solid rgba(199,160,82,.25);margin-top:16px;padding-top:14px;text-align:left">
+                <sc-for list="{{ f.days }}" as="d" hint-placeholder-count="3">
+                  <span style="display:flex;align-items:baseline;gap:9px">
+                    <span style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A67C2E;flex:none;min-width:54px">{{ d.label }}</span>
+                    <span style="font-size:13px;font-weight:300;color:#5a4d3b">{{ d.title }}</span>
+                  </span>
+                </sc-for>
+              </span>
+            </span>
+            <span style="display:block;margin-top:16px;font-size:11px;letter-spacing:.06em;color:#a08a63">{{ f.hint }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PALETA ============ -->
+  <section style="position:relative;padding:clamp(56px,8vh,104px) clamp(22px,5vw,64px);background:rgba(247,242,233,.94);border-top:1px solid rgba(199,160,82,.12)">
+    <img src="assets/stickers/redflowers.png" alt="" aria-hidden="true" style="position:absolute;top:46px;right:6%;width:92px;z-index:0;opacity:.92;pointer-events:none;filter:drop-shadow(0 9px 16px rgba(60,45,28,.16));animation:stkA 9s ease-in-out infinite">
+    
+    <div data-reveal="" style="position:relative;max-width:1120px;margin:0 auto;display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,6vw,80px);align-items:center" data-stack="">
+      <div>
+        <div style="font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#A67C2E;margin-bottom:14px">{{ t.palKicker }}</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,3.6vw,50px);color:#241c14;line-height:1.06;margin-bottom:22px">{{ t.palTitle }}</h2>
+        <p style="font-size:clamp(14px,1.2vw,17px);font-weight:300;line-height:1.85;color:#695b47;margin-bottom:32px">{{ t.palIntro }}</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <sc-for list="{{ palettes }}" as="p" hint-placeholder-count="4">
+            <button onClick="{{ p.onSelect }}" onMouseEnter="{{ p.onHov }}" onMouseLeave="{{ p.onUnhov }}" style="{{ p.chipWrap }}">
+              <span style="{{ p.chipDot }}"></span>
+              <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase">{{ p.label }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+      <div onMouseEnter="{{ palPause }}" onMouseLeave="{{ palPlay }}" style="display:flex;justify-content:center">
+        <div style="{{ palCardStyle }}">
+          <span aria-hidden="true" style="position:absolute;inset:12px;border:1px solid rgba(255,255,255,.32);border-radius:3px;pointer-events:none"></span>
+          <span aria-hidden="true" style="position:absolute;inset:19px;border:1px solid rgba(255,255,255,.14);border-radius:2px;pointer-events:none"></span>
+          <span aria-hidden="true" style="position:absolute;top:8px;left:15px;font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(255,255,255,.6);line-height:1;pointer-events:none;animation:rococoPulse 4s ease-in-out infinite">❧</span>
+          <span aria-hidden="true" style="position:absolute;top:8px;right:15px;font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(255,255,255,.6);line-height:1;pointer-events:none;transform:scaleX(-1);animation:rococoPulse 4s ease-in-out infinite .5s">❧</span>
+          <span aria-hidden="true" style="position:absolute;bottom:8px;left:15px;font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(255,255,255,.6);line-height:1;pointer-events:none;transform:scaleY(-1);animation:rococoPulse 4s ease-in-out infinite .8s">❧</span>
+          <span aria-hidden="true" style="position:absolute;bottom:8px;right:15px;font-family:'Cormorant Garamond',serif;font-size:30px;color:rgba(255,255,255,.6);line-height:1;pointer-events:none;transform:scale(-1);animation:rococoPulse 4s ease-in-out infinite 1.1s">❧</span>
+          <div style="position:relative;z-index:1;font-family:'Pinyon Script',cursive;font-size:40px;color:rgba(255,255,255,.92);line-height:1;margin-bottom:8px">{{ activePalette.script }}</div>
+          <div style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.4vw,34px);font-weight:400;letter-spacing:.04em;color:#fff">{{ activePalette.title }}</div>
+          <div data-swatches="" style="position:relative;z-index:1;display:flex;gap:12px;margin-top:26px">
+            <sc-for list="{{ activePalette.swatches }}" as="sw" hint-placeholder-count="4">
+              <span onMouseEnter="{{ sw.hov }}" onMouseLeave="{{ sw.unhov }}" style="{{ sw.wrap }}">
+                <span style="{{ sw.style }}"></span>
+                <span style="{{ sw.hexStyle }}">{{ sw.hex }}</span>
+              </span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LA APP ============ -->
+  <section id="app" style="position:relative;padding:clamp(56px,8vh,104px) clamp(22px,5vw,64px);background:rgba(252,248,242,.96)">
+    <img src="assets/stickers/lantern.png" alt="" aria-hidden="true" style="position:absolute;top:54px;left:6%;width:70px;z-index:0;opacity:.9;pointer-events:none;filter:drop-shadow(0 9px 16px rgba(60,45,28,.16));animation:stkA 9.2s ease-in-out infinite">
+    <div data-reveal="" style="max-width:1120px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:clamp(40px,6vh,60px)">
+        <div style="font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#A67C2E;margin-bottom:14px">{{ t.appKicker }}</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,4vw,54px);color:#241c14;letter-spacing:-.01em">{{ t.appTitle }}</h2>
+        <p style="max-width:58ch;margin:18px auto 0;font-size:15px;font-weight:300;line-height:1.7;color:#7a6c56">{{ t.appIntro }}</p>
+      </div>
+      <div style="position:relative;display:flex;justify-content:center;align-items:center;margin-top:clamp(8px,2vh,28px);min-height:580px">
+        <span aria-hidden="true" style="position:absolute;top:50%;left:50%;width:min(560px,92vw);height:min(560px,92vw);border-radius:50%;background:radial-gradient(circle,rgba(216,184,106,.34),rgba(216,184,106,0) 65%);z-index:0;animation:glowPulse 6s ease-in-out infinite;pointer-events:none"></span>
+        <img src="assets/stickers/redflowers.png" alt="" aria-hidden="true" style="position:absolute;top:5%;left:23%;width:86px;z-index:0;opacity:.9;pointer-events:none;filter:drop-shadow(0 10px 18px rgba(60,45,28,.2));animation:stkA 9s ease-in-out infinite">
+        <img src="assets/stickers/driedflower.png" alt="" aria-hidden="true" style="position:absolute;bottom:4%;left:26%;width:78px;z-index:2;opacity:.92;pointer-events:none;filter:drop-shadow(0 10px 18px rgba(60,45,28,.2));animation:stkA 10.5s ease-in-out infinite">
+        <img src="assets/stickers/butterfly.png" alt="" aria-hidden="true" style="position:absolute;top:7%;right:23%;width:72px;z-index:2;opacity:.92;pointer-events:none;filter:drop-shadow(0 10px 18px rgba(60,45,28,.2));animation:stkA 8.6s ease-in-out infinite">
+        <img src="assets/stickers/pinkflowers.png" alt="" aria-hidden="true" style="position:absolute;bottom:6%;right:24%;width:82px;z-index:0;opacity:.9;pointer-events:none;filter:drop-shadow(0 10px 18px rgba(60,45,28,.2));animation:stkA 9.8s ease-in-out infinite">
+        <div style="position:relative;z-index:1;width:clamp(264px,30vw,320px);aspect-ratio:9/19.2;background:#1C1813;border-radius:42px;padding:12px;box-shadow:0 40px 90px rgba(40,32,22,.42);border:1px solid rgba(199,160,82,.42);animation:cardfloat 7.5s ease-in-out infinite">
+          <span aria-hidden="true" style="position:absolute;top:18px;left:50%;transform:translateX(-50%);width:88px;height:7px;border-radius:7px;background:rgba(255,255,255,.16);z-index:3"></span>
+          <div style="position:relative;width:100%;height:100%;border-radius:32px;overflow:hidden;background:linear-gradient(180deg,#FCFAF5,#F2E7D3);display:flex;flex-direction:column">
+            <div data-appscreen="" style="flex:1;display:flex;flex-direction:column;min-height:0">
+              <div style="padding:30px 22px 15px;text-align:center;border-bottom:1px solid rgba(199,160,82,.2)">
+                <div style="font-family:'Pinyon Script',cursive;font-size:26px;color:#A67C2E;line-height:1">{{ activeModule.screenKicker }}</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:500;color:#241c14;margin-top:2px">{{ activeModule.name }}</div>
+              </div>
+              <div style="flex:1;padding:13px 15px;display:flex;flex-direction:column;gap:9px;overflow:auto">
+                <sc-for list="{{ activeModule.rows }}" as="r" hint-placeholder-count="3">
+                  <div style="display:flex;flex-direction:column;gap:3px;background:rgba(255,255,255,.72);border:1px solid rgba(199,160,82,.22);border-radius:11px;padding:11px 13px">
+                    <span style="font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#9E5A3C">{{ r.tag }}</span>
+                    <span style="font-size:13px;color:#3f3527">{{ r.label }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="border-top:1px solid rgba(199,160,82,.25);background:rgba(252,248,242,.72);padding:9px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
+              <sc-for list="{{ modules }}" as="m" hint-placeholder-count="6">
+                <button onClick="{{ m.onSelect }}" style="{{ m.tileStyle }}">
+                  <span style="{{ m.tileDot }}"></span>
+                  <span style="font-size:9px;letter-spacing:.03em;line-height:1.15;text-align:center">{{ m.short }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALERÍA ============ -->
+  <section id="galeria" style="position:relative;padding:clamp(56px,8vh,90px) 0;background:rgba(247,242,233,.94);border-top:1px solid rgba(199,160,82,.12);overflow:hidden">
+    
+    <div data-reveal="" style="text-align:center;margin-bottom:clamp(30px,4vh,46px);padding:0 clamp(22px,5vw,64px)">
+      <div style="font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#A67C2E;margin-bottom:12px">{{ t.galKicker }}</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,4vw,54px);color:#241c14;letter-spacing:-.01em">{{ t.galTitle }}</h2>
+    </div>
+    <div style="position:relative">
+      <div aria-hidden="true" style="position:absolute;top:-4px;left:0;right:0;z-index:5;pointer-events:none;height:92px">
+        <div style="position:absolute;top:30px;left:1.5%;right:1.5%;height:6px;border-radius:6px;background:repeating-linear-gradient(62deg,#a6895c,#a6895c 2px,#7e6539 2px,#7e6539 5px);box-shadow:0 3px 7px rgba(40,32,22,.22)"></div>
+        <div style="position:absolute;top:34px;left:0;right:0;display:flex;justify-content:space-around;padding:0 3%">
+          <sc-for list="{{ garlandLights }}" as="L" hint-placeholder-count="16">
+            <span style="display:flex;flex-direction:column;align-items:center">
+              <span style="width:1px;height:9px;background:#7e6539"></span>
+              <span style="{{ L.bulb }}"></span>
+            </span>
+          </sc-for>
+        <img src="assets/stickers/butterfly.png" alt="" aria-hidden="true" style="position: absolute; top: -43px; width: 58px; z-index: 1; opacity: .9; pointer-events: none; filter: drop-shadow(0 9px 16px rgba(60,45,28,.16)); animation: stkA 9s ease-in-out infinite; left: 651px; height: 67px"></div>
+        <img src="assets/stickers/redflowers.png" alt="" style="position:absolute;top:6px;left:9%;width:56px;transform:rotate(-8deg);filter:drop-shadow(0 8px 12px rgba(60,45,28,.22));animation:stkA 8.5s ease-in-out infinite">
+        <img src="assets/stickers/driedflower.png" alt="" style="position:absolute;top:10px;left:27%;width:60px;transform:rotate(6deg);filter:drop-shadow(0 8px 12px rgba(60,45,28,.22));animation:stkA 9.4s ease-in-out infinite">
+        
+        <img src="assets/stickers/driedflower.png" alt="" style="position:absolute;top:9px;left:64%;width:58px;transform:rotate(8deg) scaleX(-1);filter:drop-shadow(0 8px 12px rgba(60,45,28,.22));animation:stkA 10.1s ease-in-out infinite">
+        <img src="assets/stickers/presseddaisy.png" alt="" style="position:absolute;top:6px;left:82%;width:52px;transform:rotate(-7deg);filter:drop-shadow(0 8px 12px rgba(60,45,28,.22));animation:stkA 9s ease-in-out infinite">
+      </div>
+      <div onMouseEnter="{{ pauseMq }}" onMouseLeave="{{ playMq }}" style="display:flex;gap:clamp(26px,3vw,46px);width:max-content;align-items:flex-start;padding:46px 30px 6px;animation:marqueeRight 64s linear infinite">
+        <sc-for list="{{ galleryLoop }}" as="g" hint-placeholder-count="12">
+          <button onClick="{{ g.onOpen }}" onMouseEnter="{{ polHov }}" onMouseLeave="{{ polUnhov }}" style="{{ g.polaroidWrap }}">
+            <span style="display:block;background:#FDFBF6;padding:11px 11px 38px;box-shadow:0 16px 32px rgba(40,32,22,.22),0 2px 6px rgba(40,32,22,.12)">
+              <span style="display:block;width:clamp(168px,19vw,224px);height:clamp(168px,19vw,224px);overflow:hidden;background:#241c14">
+                <img src="{{ g.src }}" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:{{ g.objPos }};display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)">
+              </span>
+              
+            </span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPARACIÓN ============ -->
+  
+
+  <!-- ============ CITA ============ -->
+  <section id="cita" style="position:relative;padding:clamp(56px,8vh,104px) clamp(22px,5vw,64px);background:rgba(252,248,242,.96)">
+    <img src="assets/stickers/presseddaisy.png" alt="" aria-hidden="true" style="position:absolute;top:70px;left:7%;width:84px;z-index:0;opacity:.9;pointer-events:none;filter:drop-shadow(0 9px 16px rgba(60,45,28,.16));animation:stkA 8.5s ease-in-out infinite">
+    <div data-reveal="" style="max-width:920px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:clamp(36px,5vh,52px)">
+        <div style="font-family:'Pinyon Script',cursive;font-size:44px;color:#A67C2E;line-height:1;margin-bottom:6px">{{ t.citaKicker }}</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,4.4vw,58px);color:#241c14;letter-spacing:-.01em">{{ t.citaTitle }}</h2>
+        <p style="max-width:54ch;margin:18px auto 0;font-size:15px;font-weight:300;line-height:1.75;color:#7a6c56">{{ t.citaIntro }}</p>
+        
+      </div>
+      <form onSubmit="{{ submitForm }}" data-form="" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,30px)">
+        <label style="display:flex;flex-direction:column;gap:9px">
+          <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a7a60">{{ t.fNombre }}</span>
+          <input required="" type="text" style="background:transparent;border:none;border-bottom:1px solid rgba(199,160,82,.35);color:#241c14;font-size:16px;padding:9px 2px;outline:none;transition:border-color .3s" onFocus="{{ inFocus }}" onBlur="{{ inBlur }}">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:9px">
+          <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a7a60">{{ t.fEmail }}</span>
+          <input required="" type="email" style="background:transparent;border:none;border-bottom:1px solid rgba(199,160,82,.35);color:#241c14;font-size:16px;padding:9px 2px;outline:none;transition:border-color .3s" onFocus="{{ inFocus }}" onBlur="{{ inBlur }}">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:9px">
+          <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a7a60">{{ t.fFecha }}</span>
+          <input type="text" placeholder="{{ t.fFechaPh }}" style="background:transparent;border:none;border-bottom:1px solid rgba(199,160,82,.35);color:#241c14;font-size:16px;padding:9px 2px;outline:none;transition:border-color .3s" onFocus="{{ inFocus }}" onBlur="{{ inBlur }}">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:9px">
+          <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a7a60">{{ t.fDestino }}</span>
+          <input type="text" placeholder="{{ t.fDestinoDefault }}" style="background:transparent;border:none;border-bottom:1px solid rgba(199,160,82,.35);color:#241c14;font-size:16px;padding:9px 2px;outline:none;transition:border-color .3s" onFocus="{{ inFocus }}" onBlur="{{ inBlur }}">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:9px;grid-column:1/-1">
+          <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a7a60">{{ t.fMensaje }}</span>
+          <textarea rows="3" style="background:transparent;border:none;border-bottom:1px solid rgba(199,160,82,.35);color:#241c14;font-size:16px;padding:9px 2px;outline:none;resize:vertical;transition:border-color .3s" onFocus="{{ inFocus }}" onBlur="{{ inBlur }}"></textarea>
+        </label>
+        <div style="grid-column:1/-1;display:flex;justify-content:center;margin-top:14px">
+          <button type="submit" style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#1C1813;background:#C7A052;padding:17px 46px;border-radius:1px;transition:transform .3s,box-shadow .3s,filter .3s" onMouseEnter="{{ ctaHov }}" onMouseLeave="{{ ctaUnhov }}">{{ t.fSubmit }}</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="position:relative;overflow:hidden;background:rgba(245,239,229,.96);padding:clamp(56px,8vh,90px) clamp(22px,5vw,64px) 38px;text-align:center;border-top:1px solid rgba(199,160,82,.14)">
+    <img src="brand/logo-ink.png" alt="Atelier Romance" style="height:104px;width:auto;margin:0 auto 8px;opacity:.92">
+    <div style="display:flex;justify-content:center;gap:clamp(16px,3vw,40px);flex-wrap:wrap;font-size:12px;letter-spacing:.1em;color:#7a6c56;margin-bottom:26px">
+      <span style="color: #474747">atelieromance@baricharatravel.com.co</span><span style="opacity:.4">·</span><span style="color: #474747">+57 313 819 3776</span><span style="opacity:.4">·</span><span style="color: #474747">Barichara, Santander, Colombia</span>
+    </div>
+    <div style="font-size: 10px; letter-spacing: .16em; color: #474747; margin-top: 22px">© 2026 Atelier Romance · by Barichara Travel</div>
+  </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <sc-if value="{{ lightbox }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:120;background:rgba(12,9,6,.93);display:flex;align-items:center;justify-content:center;padding:5vw;animation:fadeup .35s ease;cursor:zoom-out">
+      {{ lightboxImg }}
+    </div>
+  </sc-if>
+
+  <!-- ============ CONFIRMACIÓN ============ -->
+  <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeSent }}" style="position:fixed;inset:0;z-index:120;background:rgba(12,9,6,.93);display:flex;align-items:center;justify-content:center;padding:6vw;animation:fadeup .4s ease">
+      <div style="max-width:480px;text-align:center;background:rgba(252,248,242,.97);border:1px solid rgba(199,160,82,.3);border-radius:3px;padding:clamp(40px,5vw,64px)">
+        <img src="brand/emblem-gold.png" style="height:58px;width:auto;margin:0 auto 22px">
+        <div style="font-family:'Pinyon Script',cursive;font-size:42px;color:#A67C2E;line-height:1;margin-bottom:10px">{{ t.confKicker }}</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:30px;color:#241c14;margin-bottom:16px">{{ t.confTitle }}</h3>
+        <p style="font-size:15px;font-weight:300;line-height:1.75;color:#6a5c48;margin-bottom:30px">{{ t.confBody }}</p>
+        <button onClick="{{ closeSent }}" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#1C1813;background:#C7A052;padding:14px 36px;border-radius:1px">{{ t.confClose }}</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ============ LOADER (cambio de sección) ============ -->
+  <sc-if value="{{ navLoading }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:130;display:flex;align-items:center;justify-content:center;background:rgba(245,237,222,.97)">
+      <span style="display:inline-flex;flex-direction:column;align-items:center;gap:18px">
+        <svg width="96" height="58" viewBox="0 0 96 58" style="animation:navorbit 1.3s linear infinite;transform-origin:48px 29px;overflow:visible"><circle cx="38" cy="29" r="20" fill="none" stroke="#A67C2E" stroke-width="3"></circle><circle cx="58" cy="29" r="20" fill="none" stroke="rgba(166,124,46,.5)" stroke-width="3"></circle></svg>
+        <span style="font-family:'Pinyon Script',cursive;font-size:32px;color:#A67C2E">un momento</span>
+      </span>
+    </div>
+  </sc-if>
+
+  <helmet><style>@keyframes marqueeRight{from{transform:translateX(0)}to{transform:translateX(-50%)}}</style></helmet>
+
+</div>
+<img src="assets/stickers/butterfly.png" alt="" aria-hidden="true" style="position: absolute; top: -38px; width: 74px; z-index: 1; opacity: .9; pointer-events: none; filter: drop-shadow(0 9px 16px rgba(60,45,28,.16)); animation: stkA 9s ease-in-out infinite; left: 9px"></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;es&quot;,&quot;en&quot;],&quot;default&quot;:&quot;es&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  constructor(props){ super(props); this.state = { lang:(props&&props.defaultLang)||'es', act:0, format:1, palette:'atelier', palHover:null, mod:0, lightbox:null, sent:false, navLoading:false }; this._raf=null; this._actMs=5200; this._actPaused=false; this._prevAct=0; this._prevPalKey='atelier'; this._prevMod=0; this._palMs=3800; this._palPaused=false; this._palKeys=['atelier','laurel','terracota','cal'];
+    ['setEs','setEn','submitForm','closeSent','closeLightbox','goPlanner','selectAct','hov','unhov','ctaHov','ctaUnhov','ghostHov','ghostUnhov','imgZoom','imgUnzoom','inFocus','inBlur','pauseActs','playActs'].forEach(m=>{ this[m]=this[m].bind(this); });
+  }
+
+  componentDidMount(){
+    const vid = document.querySelector('section video');
+    if(vid){ vid.muted=true; vid.defaultMuted=true; vid.setAttribute('muted',''); vid.loop=true; vid.playsInline=true; const tryPlay=()=>{ const p=vid.play(); if(p&&p.catch) p.catch(()=>{}); }; tryPlay(); vid.addEventListener('canplay', tryPlay, {once:true}); }
+
+    const reveals = Array.from(document.querySelectorAll('[data-reveal]'));
+    reveals.forEach(el=>{ el.style.opacity='0'; el.style.transform='translateY(38px)'; el.style.transition='opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1)'; });
+    const show=(el)=>{ el.style.opacity='1'; el.style.transform='none'; };
+    this._ioFired=false;
+    if('IntersectionObserver' in window){
+      this._io=new IntersectionObserver((ents)=>{ this._ioFired=true; ents.forEach(e=>{ if(e.isIntersecting) show(e.target); }); },{threshold:0.08, rootMargin:'0px 0px -8% 0px'});
+      reveals.forEach(el=>this._io.observe(el));
+    }
+    reveals.forEach(el=>{ if(el.getBoundingClientRect().top < (window.innerHeight||800)*0.94) show(el); });
+    this._fallback=setTimeout(()=>{ if(!this._ioFired) reveals.forEach(show); }, 1500);
+
+    const onScroll=()=>{ if(this._raf) return; this._raf=requestAnimationFrame(()=>{ this._raf=null; const y=window.scrollY||window.pageYOffset; const nav=document.querySelector('[data-nav]'); if(nav){ if(y>40){ nav.style.background='rgba(252,249,243,.96)'; nav.style.boxShadow='0 1px 0 rgba(40,32,22,.10), 0 10px 30px rgba(40,32,22,.06)'; nav.style.padding='12px clamp(20px,4vw,56px)'; } else { nav.style.background='rgba(251,247,240,.70)'; nav.style.boxShadow='none'; nav.style.padding='18px clamp(20px,4vw,56px)'; } } }); };
+    this._onScroll=onScroll; window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+    setTimeout(()=>{ document.querySelectorAll('a,button').forEach((el,i)=>{ const cs=getComputedStyle(el); if(cs.backgroundColor==='rgb(199, 160, 82)') el.style.animation='ctaBreath 3.6s ease-in-out infinite'; else if(cs.borderTopColor.includes('251, 245, 233')) el.style.animation='ctaBreathGhost 4.2s ease-in-out infinite'; if(el.style.animation) el.style.animationDelay=(-(i%5)*0.45)+'s'; }); }, 80);
+
+    setTimeout(()=>{ this._restartActAnim(); }, 140);
+    this._restartActTimer();
+    this._palTimer=setInterval(()=>{ if(this._palPaused||this.state.palHover) return; const i=this._palKeys.indexOf(this.state.palette); this.setState({palette:this._palKeys[(i+1)%this._palKeys.length]}); }, this._palMs);
+  }
+  componentDidUpdate(){
+    if(this._prevAct!==this.state.act){ this._prevAct=this.state.act; this._restartActAnim(); this._restartActTimer(); }
+    const palKey=this.state.palHover||this.state.palette;
+    if(this._prevPalKey!==palKey){ this._prevPalKey=palKey; this._animSwatches(); }
+    if(this._prevMod!==this.state.mod){ this._prevMod=this.state.mod; const sc=document.querySelector('[data-appscreen]'); if(sc){ sc.style.animation='none'; void sc.offsetWidth; sc.style.animation='appPop .45s ease both'; } }
+  }
+  componentWillUnmount(){ if(this._io) this._io.disconnect(); if(this._onScroll) window.removeEventListener('scroll', this._onScroll); if(this._raf) cancelAnimationFrame(this._raf); if(this._fallback) clearTimeout(this._fallback); if(this._actTimer) clearInterval(this._actTimer); if(this._palTimer) clearInterval(this._palTimer); }
+
+  pauseActs(){ this._actPaused=true; }
+  playActs(){ this._actPaused=false; }
+  _restartActTimer(){ if(this._actTimer) clearInterval(this._actTimer); this._actTimer=setInterval(()=>{ if(!this._actPaused) this.setState(s=>({act:(s.act+1)%4})); }, this._actMs); }
+  _restartActAnim(){
+    const img=document.querySelector('[data-actimg]'); if(img){ img.style.animation='none'; void img.offsetWidth; img.style.animation='actKen 6s ease-out forwards'; }
+    const cap=document.querySelector('[data-actcaption]'); if(cap){ cap.style.animation='none'; void cap.offsetWidth; cap.style.animation='capIn .7s ease both'; }
+    const prog=document.querySelector('[data-actprog]'); if(prog){ prog.style.transition='none'; prog.style.width='0'; void prog.offsetWidth; prog.style.transition='width '+this._actMs+'ms linear'; prog.style.width='100%'; }
+  }
+  _animSwatches(){ const wraps=document.querySelectorAll('[data-swatches] > span'); wraps.forEach((el,i)=>{ el.style.animation='none'; void el.offsetWidth; el.style.animation='swIn .5s ease both'; el.style.animationDelay=(i*0.07)+'s'; }); }
+
+  setEs(){ this.setState({lang:'es'}); }
+  setEn(){ this.setState({lang:'en'}); }
+  hov(e){ e.currentTarget.style.color='#C7A052'; }
+  unhov(e){ e.currentTarget.style.color=''; }
+  ctaHov(e){ e.currentTarget.style.animationPlayState='paused'; e.currentTarget.style.transform='translateY(-4px) scale(1.05)'; e.currentTarget.style.boxShadow='0 20px 42px rgba(199,160,82,.5)'; e.currentTarget.style.filter='brightness(1.07)'; }
+  ctaUnhov(e){ e.currentTarget.style.animationPlayState='running'; e.currentTarget.style.transform='translateY(0) scale(1)'; e.currentTarget.style.boxShadow='none'; e.currentTarget.style.filter='none'; }
+  ghostHov(e){ e.currentTarget.style.animationPlayState='paused'; e.currentTarget.style.borderColor='#C7A052'; e.currentTarget.style.background='rgba(199,160,82,.12)'; e.currentTarget.style.transform='translateY(-4px) scale(1.03)'; e.currentTarget.style.boxShadow='0 16px 34px rgba(199,160,82,.3)'; }
+  ghostUnhov(e){ e.currentTarget.style.animationPlayState='running'; e.currentTarget.style.borderColor='rgba(251,245,233,.6)'; e.currentTarget.style.background='transparent'; e.currentTarget.style.transform='translateY(0) scale(1)'; e.currentTarget.style.boxShadow='none'; }
+  imgZoom(e){ e.currentTarget.style.transform='scale(1.06)'; }
+  imgUnzoom(e){ e.currentTarget.style.transform='scale(1)'; }
+  inFocus(e){ e.currentTarget.style.borderColor='#C7A052'; }
+  inBlur(e){ e.currentTarget.style.borderColor='rgba(199,160,82,.35)'; }
+  submitForm(e){
+    if(e&&e.preventDefault) e.preventDefault();
+    // 👇 Pega aquí la URL del Apps Script (termina en /exec). Mientras esté vacía, solo muestra el "gracias".
+    const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycby_vvQVmHIzWNWtolSZIpGz_Zg3RqY3lZqqOy3wPq2EPea9kfo5OV49_bpTpu9e95Ue/exec';
+    try{
+      const f=e&&e.currentTarget;
+      if(f&&SHEET_ENDPOINT){
+        const fields=f.querySelectorAll('input,textarea');
+        const keys=['nombre','correo','fecha','destino','mensaje'];
+        const fd=new FormData();
+        fields.forEach((el,i)=>{ fd.append(keys[i]||('campo'+(i+1)), (el.value||'').trim()); });
+        fd.append('idioma', this.state.lang);
+        fd.append('origen', 'Novios · Ternura');
+        fetch(SHEET_ENDPOINT, { method:'POST', mode:'no-cors', body:fd }).catch(()=>{});
+      }
+    }catch(err){}
+    this.setState({sent:true});
+  }
+  closeSent(){ this.setState({sent:false}); }
+  closeLightbox(){ this.setState({lightbox:null}); }
+  selectAct(i){ this.setState({act:i}); }
+  goPlanner(e){ if(e&&e.preventDefault) e.preventDefault(); this.setState({navLoading:true}); setTimeout(()=>{ window.location.href='Atelier%20Final.dc.html'; }, 1200); }
+
+  data(){
+    return {
+      es:{
+        navExperiencia:'La experiencia', navActos:'Los 4 actos', navFormatos:'Formatos', navApp:'La app', navGaleria:'Galería', navServicios:'Servicios', navContacto:'Contacto', navCita:'Agendar cita', navPlanner:'Soy Wedding Planner',
+        heroKicker:'Couture Destination Weddings · Barichara', heroLine1:'Cada boda es', heroLine2a:'una', heroScript:'obra de autor', heroLine2b:'que se recuerda toda la vida.',
+        heroSub:'Tomamos la piedra, la luz y la cultura viva de Barichara —y donde tu historia lo pida— para componer una sola boda, para una sola pareja, una sola vez.',
+        heroCta1:'Agenda tu cita', heroCta2:'Descubre la experiencia', heroScroll:'Desliza',
+        mfKicker:'El manifiesto', mfTitle:'El lujo verdadero se diseña, se vive y se queda en la memoria.',
+        mfBody1:'Nacimos del pueblo más hermoso de Colombia para una idea simple y ambiciosa: convertir el «sí, acepto» en una obra de autor. Componemos paleta, escena y atmósfera como un sastre compone un traje a medida.',
+        mfBody2:'No organizamos eventos en serie: diseñamos una experiencia inmersiva de varios días, hecha a mano para ustedes dos, con tecnología propia y un estándar internacional.',
+        pilKicker:'Por qué Atelier', pilTitle:'Cinco razones para confiarnos tu día.',
+        actKicker:'La narrativa', actTitle:'Tu boda en cuatro actos',
+        pqKicker:'La promesa', pqTitle:'Cada detalle, pensado para ustedes',
+        pq1Tag:'Diseño de autor', pq1Title:'Una escena irrepetible', pq1Desc:'Color, flores, luz y mesa compuestos como una sola pieza para tu historia.',
+        pq2Tag:'Para siempre', pq2Title:'El recuerdo que queda', pq2Desc:'Fotografía y atmósfera de autor que conservan la emoción de cada instante.',
+        fmKicker:'Formatos de estancia', fmTitle:'Elige cómo vivir tu Barichara', fmIntro:'De una ceremonia íntima a la obra completa de varios días. Pasa el cursor por cada formato para ver qué incluye, día a día.', fmInsignia:'El favorito',
+        palKicker:'Dirección de arte', palTitle:'Una paleta hecha a la medida de tu historia.', palIntro:'Elige una atmósfera y mira cómo cambia el alma de tu boda. Cada paleta nace del paisaje, la piedra y la luz de Barichara.',
+        appKicker:'Tecnología propia', appTitle:'Una app para cada boda', appIntro:'Cada pareja recibe una app personalizada: itinerario, mapa, invitados, galería viva y concierge. Navega los módulos directamente desde el teléfono.',
+        galKicker:'El destino se vive, no se mira', galTitle:'Escenas',
+        cmpKicker:'Para que no haya dudas', cmpTitle:'Lo que somos —y lo que no.', cmpYes:'Lo que somos', cmpNo:'Lo que no somos',
+        citaKicker:'el primer trazo', citaTitle:'Agenda tu cita', citaIntro:'Cuéntanos quiénes son y soñemos juntos. Reservaremos un encuentro privado para conocer tu historia y diseñar el primer trazo de tu obra.', citaCta:'Reservar en el calendario',
+        fNombre:'Nombre de la pareja', fEmail:'Correo', fFecha:'Fecha tentativa', fFechaPh:'Mes / Año', fDestino:'Destino soñado', fDestinoDefault:'Barichara, u otro', fMensaje:'Cuéntanos su historia', fSubmit:'Enviar mi historia',
+        confKicker:'gracias', confTitle:'Hemos recibido tu historia', confBody:'Nuestro equipo te escribirá muy pronto para reservar tu encuentro privado. El primer trazo de tu obra comienza aquí.', confClose:'Cerrar',
+        footTagline:'by Barichara Travel · Couture Destination Weddings', footContact1:'hola@atelierromance.co', footContact2:'+57 300 000 0000', footLocation:'Barichara, Santander, Colombia', footBack:'Volver a la entrada', footRights:'© 2026 Atelier Romance · by Barichara Travel',
+        pilares:[
+          {n:'01',title:'Diseño de autor',desc:'Componemos paleta, escenografía, cocina y ritmo como una sola pieza de alta costura.'},
+          {n:'02',title:'Lujo consciente',desc:'Productores locales, oficios ancestrales y cocina de la tierra. Lujo que cuida el lugar.'},
+          {n:'03',title:'Una app por boda',desc:'Nuestra firma tecnológica: cada pareja recibe una app personalizada para todo el fin de semana.'},
+          {n:'04',title:'Experiencia multidía',desc:'De la bienvenida al brunch de despedida: catas, talleres y recorridos de lujo.'},
+          {n:'05',title:'Estándar internacional',desc:'RNT, respaldo ProColombia y una red aliada con excelencia reconocible en el mundo.'}
+        ],
+        acts:[
+          {script:'el encuentro',name:'Bienvenida',desc:'Llegada, hospedaje boutique y un primer brindis al atardecer sobre los tejados de Barichara.'},
+          {script:'la víspera',name:'La víspera',desc:'Talleres de oficios ancestrales, catas locales y la cena de bienvenida bajo las estrellas.'},
+          {script:'el gran sí',name:'La ceremonia',desc:'El «sí, acepto» en el escenario soñado, compuesto al detalle para ustedes dos.'},
+          {script:'para siempre',name:'La celebración',desc:'Fiesta, cocina de la tierra y un brunch de despedida para cerrar una obra inolvidable.'}
+        ],
+        formats:[
+          {name:'El Íntimo',duration:'2 días · 1 noche',desc:'Sólo ustedes y el paisaje: bienvenida, el gran día y un brunch para despedir. El sí en su forma más pura.',hint:'Íntimo · esencial',days:[{label:'Día 1',title:'Bienvenida y el gran día'},{label:'Día 2',title:'Brunch de despedida'}]},
+          {name:'El Clásico',duration:'3 días · 2 noches',desc:'Cóctel de bienvenida, el gran día Atelier y un brunch final. El equilibrio perfecto entre intimidad y celebración.',hint:'El equilibrio perfecto',days:[{label:'Día 1',title:'Cóctel de bienvenida'},{label:'Día 2',title:'El gran día Atelier'},{label:'Día 3',title:'Brunch de despedida'}],insignia:true},
+          {name:'El Atelier',duration:'4 días · 3 noches',desc:'Bienvenida, un día de inmersión premium y el gran día, cerrando con brunch Kilómetro Cero. El destino se vive, no se mira.',hint:'Para vivir Barichara',days:[{label:'Día 1',title:'Bienvenida'},{label:'Día 2',title:'Inmersión premium'},{label:'Día 3',title:'El gran día'},{label:'Día 4',title:'Brunch Km 0'}]},
+          {name:'El Completo',duration:'5 días · 4 noches',desc:'La obra entera: bienvenida, inmersión, bienestar y cultura, el gran día y el brunch de despedida. Sin límites.',hint:'La obra completa',days:[{label:'Día 1',title:'Bienvenida'},{label:'Día 2',title:'Inmersión'},{label:'Día 3',title:'Bienestar & cultura'},{label:'Día 4',title:'El gran día'},{label:'Día 5',title:'Brunch Km 0'}]}
+        ],
+        palettes:[
+          {key:'atelier',label:'Atelier',script:'cálido & dorado',title:'Atelier',bg:'linear-gradient(150deg,#A67C2E,#5e441b)',sw:['#F3E7CE','#D8B86A','#A67C2E','#5e441b']},
+          {key:'laurel',label:'Laurel',script:'verde & piedra',title:'Laurel',bg:'linear-gradient(150deg,#6b7355,#3c422f)',sw:['#E7ECDD','#A9B488','#6b7355','#3c422f']},
+          {key:'terracota',label:'Terracota',script:'tierra & sol',title:'Terracota',bg:'linear-gradient(150deg,#b5683f,#6e3a22)',sw:['#F4DAC8','#D89274','#b5683f','#6e3a22']},
+          {key:'cal',label:'Cal',script:'blanco & luz',title:'Cal',bg:'linear-gradient(150deg,#cdbfa8,#8a7c64)',sw:['#FBF6EC','#E3D7C2','#cdbfa8','#8a7c64']}
+        ],
+        modules:[
+          {name:'Tu estadía',desc:'Reserva tu habitación y sus detalles.',screenKicker:'tu hogar',rows:[{tag:'Habitación',label:'Suite Piedra · Hotel boutique'},{tag:'Check-in',label:'Viernes · 1:00 PM'},{tag:'Detalle',label:'Welcome kit artesanal'}]},
+          {name:'Nuestra historia',desc:'Cómo comenzó todo.',screenKicker:'desde el inicio',rows:[{tag:'2019',label:'El primer encuentro'},{tag:'2024',label:'La propuesta en Barichara'},{tag:'Hoy',label:'El gran sí'}]},
+          {name:'Experiencias',desc:'Planes del fin de semana.',screenKicker:'para vivir',rows:[{tag:'Sábado',label:'Taller de oficios ancestrales'},{tag:'Tarde',label:'Recorrido de lujo'},{tag:'Noche',label:'Cata de vinos locales'}]},
+          {name:'Detalles de la boda',desc:'Lugar, dress code y más.',screenKicker:'el gran día',rows:[{tag:'Lugar',label:'Mirador · Barichara'},{tag:'Dress code',label:'Couture de jardín'},{tag:'Nota',label:'Calzado para empedrado'}]},
+          {name:'Agenda del día',desc:'No te pierdas ningún momento.',screenKicker:'el itinerario',rows:[{tag:'16:00',label:'Ceremonia al atardecer'},{tag:'18:30',label:'Cóctel & catas'},{tag:'20:00',label:'Cena y fiesta'}]},
+          {name:'Galería viva',desc:'Captura y comparte momentos.',screenKicker:'la galería viva',rows:[{tag:'Galería',label:'Sube tus fotos del finde'},{tag:'Compartir',label:'Álbum colectivo'},{tag:'Recuerdo',label:'Para siempre'}]}
+        ],
+        galWords:['Sí, acepto','Amor','Barichara','Couture','Para siempre','De la tierra','Tu historia','Atardecer','Hecho a mano'],
+        esList:['Una DMC de bodas destino de lujo','Diseño de autor: color, escena, atmósfera','Una experiencia inmersiva de 3–4 días','Tecnología propia: una app por boda','Sostenibilidad real, de la tierra'],
+        noList:['Una wedding planner tradicional','Paquetes de boda en serie','Un evento de un solo día','Una agencia low cost','Improvisación de último minuto']
+      },
+      en:{
+        navExperiencia:'The experience', navActos:'The 4 acts', navFormatos:'Formats', navApp:'The app', navGaleria:'Gallery', navServicios:'Services', navContacto:'Contact', navCita:'Book a meeting', navPlanner:'I am a Wedding Planner',
+        heroKicker:'Couture Destination Weddings · Barichara', heroLine1:'Every wedding is', heroLine2a:'a', heroScript:'work of art', heroLine2b:'remembered for a lifetime.',
+        heroSub:'We take the stone, the light and the living culture of Barichara —and wherever your story calls— to compose a single wedding, for a single couple, just once.',
+        heroCta1:'Book your meeting', heroCta2:'Discover the experience', heroScroll:'Scroll',
+        mfKicker:'The manifesto', mfTitle:'True luxury is designed, lived, and it stays in the memory.',
+        mfBody1:'We were born in the most beautiful town in Colombia for a simple, ambitious idea: to turn the “I do” into a work of authorship. We compose palette, scene and atmosphere the way a tailor composes a bespoke suit.',
+        mfBody2:'We don’t run cookie-cutter events: we design a multi-day immersive experience, handmade for the two of you, with proprietary technology and an international standard.',
+        pilKicker:'Why Atelier', pilTitle:'Five reasons to trust us with your day.',
+        actKicker:'The narrative', actTitle:'Your wedding in four acts',
+        pqKicker:'The promise', pqTitle:'Every detail, made for you',
+        pq1Tag:'Authored design', pq1Title:'A scene like no other', pq1Desc:'Color, flowers, light and table composed as a single piece for your story.',
+        pq2Tag:'Forever', pq2Title:'The memory that stays', pq2Desc:'Authored photography and atmosphere that keep the emotion of every moment.',
+        fmKicker:'Stay formats', fmTitle:'Choose how to live your Barichara', fmIntro:'From an intimate ceremony to the complete multi-day work. Hover over each format to see what it includes, day by day.', fmInsignia:'The favorite',
+        palKicker:'Art direction', palTitle:'A palette tailored to your story.', palIntro:'Choose an atmosphere and watch the soul of your wedding change. Each palette is born from the landscape, stone and light of Barichara.',
+        appKicker:'Proprietary tech', appTitle:'An app for every wedding', appIntro:'Each couple receives a personalized app: itinerary, map, guests, living gallery and concierge. Navigate the modules right from the phone.',
+        galKicker:'The destination is lived, not watched', galTitle:'Scenes',
+        cmpKicker:'So there are no doubts', cmpTitle:'What we are —and what we’re not.', cmpYes:'What we are', cmpNo:'What we’re not',
+        citaKicker:'the first stroke', citaTitle:'Book your meeting', citaIntro:'Tell us who you are and let’s dream together. We’ll reserve a private encounter to learn your story and sketch the first stroke of your work.', citaCta:'Book on the calendar',
+        fNombre:'Couple’s name', fEmail:'Email', fFecha:'Tentative date', fFechaPh:'Month / Year', fDestino:'Dream destination', fDestinoDefault:'Barichara, or other', fMensaje:'Tell us your story', fSubmit:'Send my story',
+        confKicker:'thank you', confTitle:'We’ve received your story', confBody:'Our team will write to you very soon to reserve your private encounter. The first stroke of your work begins here.', confClose:'Close',
+        footTagline:'by Barichara Travel · Couture Destination Weddings', footContact1:'hola@atelierromance.co', footContact2:'+57 300 000 0000', footLocation:'Barichara, Santander, Colombia', footBack:'Back to the entrance', footRights:'© 2026 Atelier Romance · by Barichara Travel',
+        pilares:[
+          {n:'01',title:'Authored design',desc:'We compose palette, scenography, cuisine and rhythm as a single haute-couture piece.'},
+          {n:'02',title:'Conscious luxury',desc:'Local producers, ancestral crafts and cuisine of the land. Luxury that cares for the place.'},
+          {n:'03',title:'An app per wedding',desc:'Our tech signature: each couple receives a personalized app for the whole weekend.'},
+          {n:'04',title:'Multi-day experience',desc:'From welcome to farewell brunch: tastings, workshops and luxury tours.'},
+          {n:'05',title:'International standard',desc:'RNT, ProColombia backing and an allied network with world-class excellence.'}
+        ],
+        acts:[
+          {script:'the arrival',name:'Welcome',desc:'Arrival, boutique lodging and a first toast at sunset over the rooftops of Barichara.'},
+          {script:'the eve',name:'The eve',desc:'Ancestral craft workshops, local tastings and the welcome dinner under the stars.'},
+          {script:'the I do',name:'The ceremony',desc:'The “I do” in the dreamed-of setting, composed to the detail for the two of you.'},
+          {script:'forever',name:'The celebration',desc:'Party, cuisine of the land and a farewell brunch to close an unforgettable work.'}
+        ],
+        formats:[
+          {name:'The Intimate',duration:'2 days · 1 night',desc:'Just the two of you and the landscape: welcome, the big day and a farewell brunch. The I do in its purest form.',hint:'Intimate · essential',days:[{label:'Day 1',title:'Welcome and the big day'},{label:'Day 2',title:'Farewell brunch'}]},
+          {name:'The Classic',duration:'3 days · 2 nights',desc:'Welcome cocktail, the Atelier big day and a closing brunch. The perfect balance of intimacy and celebration.',hint:'The perfect balance',days:[{label:'Day 1',title:'Welcome cocktail'},{label:'Day 2',title:'The Atelier big day'},{label:'Day 3',title:'Farewell brunch'}],insignia:true},
+          {name:'The Atelier',duration:'4 days · 3 nights',desc:'Welcome, a day of premium immersion and the big day, closing with a Kilometer Zero brunch. The destination is lived, not watched.',hint:'To live Barichara',days:[{label:'Day 1',title:'Welcome'},{label:'Day 2',title:'Premium immersion'},{label:'Day 3',title:'The big day'},{label:'Day 4',title:'Km 0 brunch'}]},
+          {name:'The Complete',duration:'5 days · 4 nights',desc:'The whole work: welcome, immersion, wellness and culture, the big day and the farewell brunch. Limitless.',hint:'The complete work',days:[{label:'Day 1',title:'Welcome'},{label:'Day 2',title:'Immersion'},{label:'Day 3',title:'Wellness & culture'},{label:'Day 4',title:'The big day'},{label:'Day 5',title:'Km 0 brunch'}]}
+        ],
+        palettes:[
+          {key:'atelier',label:'Atelier',script:'warm & gold',title:'Atelier',bg:'linear-gradient(150deg,#A67C2E,#5e441b)',sw:['#F3E7CE','#D8B86A','#A67C2E','#5e441b']},
+          {key:'laurel',label:'Laurel',script:'green & stone',title:'Laurel',bg:'linear-gradient(150deg,#6b7355,#3c422f)',sw:['#E7ECDD','#A9B488','#6b7355','#3c422f']},
+          {key:'terracota',label:'Terracotta',script:'earth & sun',title:'Terracotta',bg:'linear-gradient(150deg,#b5683f,#6e3a22)',sw:['#F4DAC8','#D89274','#b5683f','#6e3a22']},
+          {key:'cal',label:'Lime',script:'white & light',title:'Lime',bg:'linear-gradient(150deg,#cdbfa8,#8a7c64)',sw:['#FBF6EC','#E3D7C2','#cdbfa8','#8a7c64']}
+        ],
+        modules:[
+          {name:'Your stay',desc:'Book your room and its details.',screenKicker:'your home',rows:[{tag:'Room',label:'Piedra Suite · Boutique hotel'},{tag:'Check-in',label:'Friday · 1:00 PM'},{tag:'Detail',label:'Artisan welcome kit'}]},
+          {name:'Our story',desc:'How it all began.',screenKicker:'from the start',rows:[{tag:'2019',label:'The first encounter'},{tag:'2024',label:'The proposal in Barichara'},{tag:'Today',label:'The great I do'}]},
+          {name:'Experiences',desc:'Weekend plans.',screenKicker:'to live',rows:[{tag:'Saturday',label:'Ancestral crafts workshop'},{tag:'Afternoon',label:'Luxury tour'},{tag:'Night',label:'Local wine tasting'}]},
+          {name:'Wedding details',desc:'Venue, dress code and more.',screenKicker:'the great day',rows:[{tag:'Venue',label:'Mirador · Barichara'},{tag:'Dress code',label:'Garden couture'},{tag:'Note',label:'Cobblestone-friendly shoes'}]},
+          {name:'Day agenda',desc:'Don’t miss a moment.',screenKicker:'the itinerary',rows:[{tag:'4:00 PM',label:'Sunset ceremony'},{tag:'6:30 PM',label:'Cocktail & tastings'},{tag:'8:00 PM',label:'Dinner and party'}]},
+          {name:'Living gallery',desc:'Capture and share moments.',screenKicker:'the living gallery',rows:[{tag:'Gallery',label:'Upload your weekend photos'},{tag:'Share',label:'Collective album'},{tag:'Keepsake',label:'Forever'}]}
+        ],
+        galWords:['I do','Love','Barichara','Couture','Forever','From the land','Your story','Sunset','Handmade'],
+        esList:['A luxury destination-wedding DMC','Authored design: color, scene, atmosphere','A 3–4 day immersive experience','Proprietary tech: an app per wedding','Real sustainability, from the land'],
+        noList:['A traditional wedding planner','Cookie-cutter wedding packages','A single-day event','A low-cost agency','Last-minute improvisation']
+      }
+    };
+  }
+
+  renderVals(){
+    const st=this.state;
+    const t=this.data()[st.lang];
+    const pilTags = st.lang==='es' ? ['Diseño','Lujo','Tecnología','Experiencia','Estándar'] : ['Design','Luxury','Technology','Experience','Standard'];
+    const pilCardBase='position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;height:100%;background:linear-gradient(160deg,#FCFAF5,#F4EBD9);border:1px solid rgba(199,160,82,.32);border-radius:4px;padding:clamp(22px,1.9vw,28px);box-shadow:0 14px 34px rgba(60,45,28,.09),inset 0 0 0 1px rgba(255,255,255,.6);transition:transform .5s cubic-bezier(.34,1.3,.5,1),box-shadow .5s ease';
+    const pilares = t.pilares.map((p,i)=>({ ...p, tag:pilTags[i%pilTags.length],
+      sticker:'assets/stickers/presseddaisy.png',
+      stickerStyle:'position:absolute;bottom:-14px;right:-12px;width:72px;z-index:-1;opacity:.62;pointer-events:none;filter:drop-shadow(0 6px 12px rgba(60,45,28,.14));animation:cardfloat '+(6.5+(i%3)*0.7).toFixed(1)+'s ease-in-out infinite;animation-delay:-'+(i*0.5).toFixed(1)+'s',
+      cardStyle:pilCardBase,
+      hov:(e)=>{ e.currentTarget.style.transform='translateY(-10px)'; e.currentTarget.style.boxShadow='0 32px 64px rgba(60,45,28,.2),inset 0 0 0 1px rgba(255,255,255,.65)'; },
+      unhov:(e)=>{ e.currentTarget.style.transform='translateY(0)'; e.currentTarget.style.boxShadow='0 14px 34px rgba(60,45,28,.09),inset 0 0 0 1px rgba(255,255,255,.6)'; }
+    }));
+    const langBtn=(on)=>'letter-spacing:.12em;padding:3px 4px;border-bottom:1px solid '+(on?'#C7A052':'transparent')+';color:'+(on?'#C7A052':'#8a7a60')+';transition:color .3s;background:none;cursor:pointer';
+
+    const PH=[
+      {src:'assets/photos/foto10.jpg', pos:'center 55%'},
+      {src:'assets/photos/fptp1.jpg', pos:'center 38%'},
+      {src:'assets/photos/novia-callejon.jpg', pos:'center 30%'},
+      {src:'assets/photos/novia-iglesia.jpg', pos:'center 26%'}
+    ];
+    const acts=t.acts.map((a,i)=>({ ...a, num:String(i+1).padStart(2,'0'),
+      onSelect:()=>this.selectAct(i),
+      hov:(e)=>{ if(i!==st.act){ e.currentTarget.style.borderColor='rgba(199,160,82,.55)'; e.currentTarget.style.background='rgba(199,160,82,.06)'; } },
+      unhov:(e)=>{ if(i!==st.act){ e.currentTarget.style.borderColor='rgba(199,160,82,.22)'; e.currentTarget.style.background='transparent'; } },
+      tabStyle:'text-align:left;width:100%;cursor:pointer;border:1px solid '+(i===st.act?'#C7A052':'rgba(199,160,82,.22)')+';background:'+(i===st.act?'linear-gradient(160deg,#FCFAF5,#F4EBD9)':'transparent')+';border-radius:4px;padding:clamp(16px,1.6vw,22px);transition:border-color .3s,background .3s;box-shadow:'+(i===st.act?'0 14px 32px rgba(60,45,28,.1)':'none')
+    }));
+    const aA=PH[st.act]||PH[0];
+    const activeAct={ ...t.acts[st.act], counter:String(st.act+1).padStart(2,'0')+' / 04', imgStyle:'position:absolute;inset:0;background-image:url('+aA.src+');background-size:cover;background-position:'+aA.pos+';transition:opacity .5s ease' };
+
+    const fmtColors=['#8a7c64','#A67C2E','#6b7355','#b5683f'];
+    const hx=(h,a)=>{ const n=parseInt(h.slice(1),16); return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')'; };
+    const formats=t.formats.map((f,i)=>{ const c=fmtColors[i%fmtColors.length]; const on=i===st.format; return { ...f, insignia:!!f.insignia, color:c,
+      onHover:()=>{ if(st.format!==i) this.setState({format:i}); },
+      onLeave:()=>{ if(st.format!==1) this.setState({format:1}); },
+      accentStyle:'position:absolute;top:0;left:0;right:0;height:4px;border-radius:4px 4px 0 0;background:'+c+';opacity:'+(on?1:.5)+';transition:opacity .35s',
+      cardStyle:'position:relative;cursor:pointer;text-align:left;width:100%;font-family:inherit;display:flex;flex-direction:column;height:100%;background:'+(on?'linear-gradient(160deg,'+hx(c,.14)+','+hx(c,.05)+')':'rgba(252,250,245,.7)')+';border:1px solid '+(on?c:'rgba(199,160,82,.28)')+';border-radius:4px;padding:clamp(22px,2vw,30px);transition:border-color .35s,background .35s,transform .35s,box-shadow .35s;box-shadow:'+(on?'0 22px 50px '+hx(c,.22):'0 12px 30px rgba(60,45,28,.06)')+';transform:translateY('+(on?'-6px':'0')+')',
+      durStyle:'display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:'+c+';margin-top:8px',
+      infoStyle:'overflow:hidden;transition:max-height .5s ease,opacity .4s ease;max-height:'+(on?'260px':'0')+';opacity:'+(on?'1':'0')
+    }; });
+
+    const palettes=t.palettes.map(p=>{ const sel=p.key===st.palette; const prev=st.palHover===p.key; return { ...p,
+      onSelect:()=>this.setState({palette:p.key}),
+      onHov:()=>this.setState({palHover:p.key}),
+      onUnhov:()=>this.setState({palHover:null}),
+      chipWrap:'display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:1px solid '+(sel?'#C7A052':(prev?'rgba(199,160,82,.6)':'rgba(199,160,82,.35)'))+';background:'+(sel?'rgba(199,160,82,.12)':(prev?'rgba(199,160,82,.06)':'transparent'))+';padding:9px 15px;border-radius:40px;color:#5a4d3b;transition:border-color .3s,background .3s,transform .3s;transform:translateY('+((sel||prev)?'-2px':'0')+')',
+      chipDot:'width:15px;height:15px;border-radius:50%;background:'+p.bg+';box-shadow:0 0 0 1px rgba(0,0,0,.08)'
+    }; });
+    const ap=t.palettes.find(p=>p.key===(st.palHover||st.palette))||t.palettes[0];
+    const activePalette={ script:ap.script, title:ap.title, swatches:ap.sw.map(c=>({ hex:c,
+      wrap:'display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer',
+      style:'width:34px;height:46px;border-radius:2px;background:'+c+';box-shadow:0 2px 8px rgba(0,0,0,.18);transition:transform .35s cubic-bezier(.34,1.4,.5,1)',
+      hexStyle:'font-size:9px;letter-spacing:.04em;font-family:monospace;text-transform:uppercase;color:rgba(255,255,255,.85);opacity:0;transition:opacity .3s',
+      hov:(e)=>{ const ch=e.currentTarget.children; if(ch[0]) ch[0].style.transform='translateY(-7px) scale(1.1)'; if(ch[1]) ch[1].style.opacity='1'; },
+      unhov:(e)=>{ const ch=e.currentTarget.children; if(ch[0]) ch[0].style.transform='none'; if(ch[1]) ch[1].style.opacity='0'; }
+    })) };
+    const palCardStyle='position:relative;overflow:hidden;width:min(360px,86vw);aspect-ratio:3/4;background:'+ap.bg+';border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px;box-shadow:0 34px 70px rgba(40,32,22,.28);transition:background .6s ease;animation:cardfloat 7s ease-in-out infinite';
+
+    const modShort=st.lang==='es'?['Estadía','Historia','Vivencias','Boda','Agenda','Galería']:['Stay','Story','Living','Wedding','Agenda','Gallery'];
+    const modules=t.modules.map((m,i)=>{ const on=i===st.mod; return { ...m, short:modShort[i%modShort.length],
+      onSelect:()=>this.setState({mod:i}),
+      tileStyle:'display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;border:1px solid '+(on?'#C7A052':'rgba(199,160,82,.25)')+';background:'+(on?'rgba(199,160,82,.2)':'rgba(255,255,255,.55)')+';border-radius:10px;padding:9px 4px;transition:border-color .3s,background .3s,transform .3s;transform:translateY('+(on?'-2px':'0')+');color:'+(on?'#7a5a22':'#8a7a60'),
+      tileDot:'width:7px;height:7px;transform:rotate(45deg);background:'+(on?'#C7A052':'#cdb99a')+';transition:background .3s'
+    }; });
+    const activeModule=t.modules[st.mod]||t.modules[0];
+    const garlandLights=Array.from({length:18}).map((_,i)=>({ bulb:'width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3c4,#E6B23A 72%);box-shadow:0 0 8px 2px rgba(230,178,58,.7);animation:twinkle '+(1.6+(i%4)*0.4).toFixed(1)+'s ease-in-out infinite;animation-delay:-'+((i%6)*0.3).toFixed(1)+'s' }));
+
+    const galSrc=['assets/photos/novia-iglesia.jpg','assets/photos/novia-tocado.jpg','assets/photos/novia-velo.jpg','assets/photos/foto6.jpg','assets/photos/novia-callejon.jpg','assets/photos/novia-noche.jpg','assets/photos/foto12.jpg','assets/photos/novia-estrellas.jpg','assets/photos/foto9.jpg','assets/photos/fptp1.jpg'];
+    const galPos={ 'assets/photos/novia-tocado.jpg':'center 28%','assets/photos/foto9.jpg':'center 22%','assets/photos/foto12.jpg':'center 20%' };
+    const gallery=galSrc.map(src=>({ src, objPos:(galPos[src]||'center'),
+      onOpen:()=>this.setState({lightbox:src}),
+      hov:(e)=>{ const im=e.currentTarget.querySelector('img'); if(im) im.style.transform='scale(1.07)'; },
+      unhov:(e)=>{ const im=e.currentTarget.querySelector('img'); if(im) im.style.transform='scale(1)'; }
+    }));
+    const galWords=t.galWords;
+    const galleryLoop=gallery.concat(gallery).map((g,idx)=>{ const i=idx%gallery.length; const dur=(4.2+(i%4)*0.7).toFixed(2); const del=((i%5)*0.5).toFixed(2); return { ...g, caption:galWords[i%galWords.length], polaroidWrap:'position:relative;flex:none;cursor:zoom-in;background:none;padding:0;border:none;transform-origin:top center;animation:swing '+dur+'s ease-in-out infinite;animation-delay:-'+del+'s;transition:filter .4s ease' }; });
+    const polHov=(e)=>{ const im=e.currentTarget.querySelector('img'); if(im) im.style.transform='scale(1.07)'; e.currentTarget.style.filter='brightness(1.04)'; };
+    const polUnhov=(e)=>{ const im=e.currentTarget.querySelector('img'); if(im) im.style.transform='scale(1)'; e.currentTarget.style.filter='none'; };
+    const pauseMq=(e)=>{ e.currentTarget.style.animationPlayState='paused'; };
+    const playMq=(e)=>{ e.currentTarget.style.animationPlayState='running'; };
+    const promHov=(e)=>{ const c=e.currentTarget; c.style.transform='translateY(-9px)'; c.style.boxShadow='0 36px 74px rgba(60,45,28,.28)'; const sh=c.querySelector('[data-shine]'); if(sh) sh.style.transform='translateX(130%)'; const tx=c.querySelector('[data-promtext]'); if(tx) tx.style.transform='translateY(-6px)'; };
+    const promUnhov=(e)=>{ const c=e.currentTarget; c.style.transform='translateY(0)'; c.style.boxShadow='0 18px 44px rgba(60,45,28,.14)'; const sh=c.querySelector('[data-shine]'); if(sh) sh.style.transform='translateX(-130%)'; const tx=c.querySelector('[data-promtext]'); if(tx) tx.style.transform='translateY(0)'; };
+    const palPause=()=>{ this._palPaused=true; };
+    const palPlay=()=>{ this._palPaused=false; };
+
+    return {
+      t, lang:st.lang, setEs:this.setEs, setEn:this.setEn, esBtnStyle:langBtn(st.lang==='es'), enBtnStyle:langBtn(st.lang==='en'),
+      hov:this.hov, unhov:this.unhov, ctaHov:this.ctaHov, ctaUnhov:this.ctaUnhov, ghostHov:this.ghostHov, ghostUnhov:this.ghostUnhov,
+      imgZoom:this.imgZoom, imgUnzoom:this.imgUnzoom, inFocus:this.inFocus, inBlur:this.inBlur,
+      submitForm:this.submitForm, sent:st.sent, closeSent:this.closeSent, lightbox:st.lightbox, closeLightbox:this.closeLightbox,
+      lightboxImg: st.lightbox ? React.createElement('img',{src:st.lightbox, alt:'', style:{maxWidth:'90vw',maxHeight:'88vh',borderRadius:'3px',boxShadow:'0 30px 80px rgba(0,0,0,.6)'}}) : null,
+      navLoading:st.navLoading, goPlanner:this.goPlanner,
+      pauseActs:this.pauseActs, playActs:this.playActs,
+      pilares, acts, activeAct, formats, palettes, activePalette, palCardStyle, palPause, palPlay, modules, activeModule,
+      promHov, promUnhov, garlandLights,
+      gallery, galleryLoop, polHov, polUnhov, pauseMq, playMq,
+      esList:t.esList, noList:t.noList
+    };
+  }
+}
+</script>
+</body>
+</html>
