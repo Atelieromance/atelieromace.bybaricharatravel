@@ -13,6 +13,37 @@
 <script src="./support.js"></script>
 </head>
 <body>
+ <div class="mobile-home">
+
+  <div class="mobile-home-inner">
+
+    <img
+      src="brand/emblem-gold.png"
+      class="mobile-home-logo"
+      alt="Atelier Romance"
+    >
+
+    <h1 class="mobile-title">
+      Atelier Romance
+    </h1>
+
+    <p class="mobile-subtitle">
+      Elige tu experiencia
+    </p>
+
+    <a href="Atelier Romance Ternura.dc.html" class="mobile-card">
+      <h3>Nos vamos a casar</h3>
+      <p>Experiencias de boda de autor en Barichara.</p>
+    </a>
+
+    <a href="Atelier Final.dc.html" class="mobile-card">
+      <h3>Soy Wedding Planner</h3>
+      <p>Web, app y dirección de arte para profesionales.</p>
+    </a>
+
+  </div>
+
+</div>
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,6 +132,64 @@
     display:none !important;
   }
 
+}
+@media (max-width:768px){
+
+  [data-door]{
+    display:none !important;
+  }
+
+  .mobile-home{
+    display:flex !important;
+  }
+}
+
+.mobile-home{
+  display:none;
+  min-height:100vh;
+  background:#0f0f0f;
+  color:white;
+  padding:40px 30px;
+  justify-content:center;
+  align-items:center;
+}
+
+.mobile-home-inner{
+  width:100%;
+  max-width:420px;
+  text-align:center;
+}
+
+.mobile-home-logo{
+  width:140px;
+  margin:0 auto 30px;
+}
+
+.mobile-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:54px;
+  margin-bottom:15px;
+}
+
+.mobile-subtitle{
+  font-size:18px;
+  opacity:.85;
+  margin-bottom:40px;
+}
+
+.mobile-card{
+  display:block;
+  background:#C7A052;
+  color:#111;
+  padding:22px;
+  margin-bottom:18px;
+  border-radius:12px;
+  text-decoration:none;
+}
+
+.mobile-card h3{
+  margin-bottom:8px;
+  font-size:22px;
 }
 </style>
 </helmet>
