@@ -38,74 +38,67 @@
     [data-brandwrap]{top:50% !important;transform:translate(-50%,-50%) !important;animation:none !important}
   }
 /* ==========================
-   INDEX MOBILE CLEANUP
+   INDEX MOBILE REAL FIX
 ========================== */
 
 @media (max-width:768px){
 
-  /* Hero principal */
-  [data-hero-copy]{
-    width:90% !important;
-    max-width:360px !important;
-    margin:auto !important;
+  body{
+    overflow:auto !important;
   }
 
-  /* Título principal */
-  h1{
-    font-size:52px !important;
+  [data-door]{
+    flex-direction:column !important;
+    height:auto !important;
+    min-height:100vh !important;
+  }
+
+  [data-half]{
+    min-height:50vh !important;
+    width:100% !important;
+  }
+
+  [data-half] h2{
+    font-size:54px !important;
     line-height:1.05 !important;
   }
 
-  /* Texto descriptivo */
-  [data-hero-copy] p{
+  [data-half] p{
     font-size:18px !important;
-    line-height:1.6 !important;
+    line-height:1.7 !important;
+    max-width:90% !important;
   }
 
-  /* Botón principal */
-  [data-maincta]{
-    width:85% !important;
+  [data-cta]{
+    width:90% !important;
     max-width:320px !important;
-    margin:30px auto !important;
-    padding:18px 24px !important;
+    justify-content:center !important;
   }
 
-  /* Elimina el medallón dorado central */
-  [data-seal],
-  [data-emblem-center],
-  [data-coin]{
+  /* Logo central más pequeño */
+  [data-brandwrap]{
+    top:50% !important;
+    transform:translate(-50%,-50%) !important;
+    scale:.75;
+  }
+
+  [data-brandwrap] > div:first-child{
+    width:60px !important;
+    height:60px !important;
+  }
+
+  [data-brandwrap] img{
+    height:32px !important;
+  }
+
+  /* Oculta subtítulo inferior */
+  [data-brandwrap] div:last-child{
     display:none !important;
   }
 
-  /* Reduce altura del hero */
-  [data-hero]{
-    min-height:90vh !important;
-  }
-
-  /* Sección Wedding Planner */
-  [data-pro-section]{
-    min-height:90vh !important;
-  }
-
-  /* Oscurece imagen para que el texto se lea mejor */
-  [data-pro-section]::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.45);
-    z-index:1;
-  }
-
-  [data-pro-section] > *{
-    position:relative;
-    z-index:2;
-  }
-
-  /* Botón portafolio */
-  [data-portfolio-btn]{
-    width:85% !important;
-    max-width:320px !important;
-    margin:25px auto !important;
+  /* Línea central */
+  [data-seam]{
+    display:none !important;
   }
 
 }
