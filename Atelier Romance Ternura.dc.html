@@ -799,7 +799,7 @@ class Component extends DCLogic {
     const activeModule=t.modules[st.mod]||t.modules[0];
     const garlandLights=Array.from({length:18}).map((_,i)=>({ bulb:'width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3c4,#E6B23A 72%);box-shadow:0 0 8px 2px rgba(230,178,58,.7);animation:twinkle '+(1.6+(i%4)*0.4).toFixed(1)+'s ease-in-out infinite;animation-delay:-'+((i%6)*0.3).toFixed(1)+'s' }));
 
-    const galSrc=['assets/photos/novia-iglesia.jpg','assets/photos/novia-tocado.jpg','assets/photos/novia-velo.jpg','assets/photos/foto6.jpg','assets/photos/novia-callejon.jpg','assets/photos/novia-noche.jpg','assets/photos/foto12.jpg','assets/photos/novia-estrellas.jpg','assets/photos/foto9.jpg','assets/photos/fptp1.jpg'];
+    const galSrc=['https://res.cloudinary.com/dyhseyihr/image/upload/v1782587032/18f4ef90-404a-4427-afb9-abdcb3fbab7d_sdqihu.png','assets/photos/novia-tocado.jpg','assets/photos/novia-velo.jpg','assets/photos/foto6.jpg','https://res.cloudinary.com/dyhseyihr/image/upload/v1782587031/2fa648ad-19fc-49db-81bb-f23861da722a_ffqx1k.png','assets/photos/novia-noche.jpg','assets/photos/foto12.jpg','assets/photos/novia-estrellas.jpg','assets/photos/foto9.jpg','assets/photos/fptp1.jpg'];
     const galPos={ 'assets/photos/novia-tocado.jpg':'center 28%','assets/photos/foto9.jpg':'center 22%','assets/photos/foto12.jpg':'center 20%' };
     const gallery=galSrc.map(src=>({ src, objPos:(galPos[src]||'center'),
       onOpen:()=>this.setState({lightbox:src}),
