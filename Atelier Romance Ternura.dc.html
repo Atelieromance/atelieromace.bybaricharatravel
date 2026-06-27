@@ -249,7 +249,7 @@
       
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.4vw,34px)" data-stack="">
         <div onMouseEnter="{{ promHov }}" onMouseLeave="{{ promUnhov }}" style="position:relative;overflow:hidden;border-radius:2px;aspect-ratio:4/3.4;box-shadow:0 18px 44px rgba(60,45,28,.14);transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s ease">
-          <img src="assets/photos/foto7.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 26%;animation:promKen 17s ease-in-out infinite alternate">
+          <img src="assets/s/foto7.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 26%;animation:promKen 17s ease-in-out infinite alternate">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.15),rgba(20,16,12,.9))"></div>
           <span data-shine="" aria-hidden="true" style="position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.3) 50%,transparent 62%);transform:translateX(-130%);transition:transform 1s ease"></span>
           <div data-promtext="" style="position:absolute;left:0;right:0;bottom:0;z-index:3;padding:clamp(24px,2.4vw,38px);transition:transform .6s ease">
@@ -737,11 +737,19 @@ class Component extends DCLogic {
     const langBtn=(on)=>'letter-spacing:.12em;padding:3px 4px;border-bottom:1px solid '+(on?'#C7A052':'transparent')+';color:'+(on?'#C7A052':'#8a7a60')+';transition:color .3s;background:none;cursor:pointer';
 
     const PH=[
-      {src:'assets/photos/foto10.jpg', pos:'center 55%'},
-      {src:'assets/photos/fptp1.jpg', pos:'center 38%'},
-      {src:'assets/photos/novia-callejon.jpg', pos:'center 30%'},
-      {src:'assets/photos/novia-iglesia.jpg', pos:'center 26%'}
-    ];
+  {src:'assets/photos/foto10.jpg', pos:'center 55%'},
+  {src:'assets/photos/fptp1.jpg', pos:'center 38%'},
+
+  {
+    src:'https://res.cloudinary.com/dyhseyihr/image/upload/v1782587031/bd9e2b8e-1e70-4e5a-848d-096878aa3ed8_aaelvt.png',
+    pos:'center center'
+  },
+
+  {
+    src:'https://res.cloudinary.com/dyhseyihr/image/upload/v1782587032/0954103c-8454-4061-8010-76c47fe6be23_r75e5q.png',
+    pos:'center center'
+  }
+];
     const acts=t.acts.map((a,i)=>({ ...a, num:String(i+1).padStart(2,'0'),
       onSelect:()=>this.selectAct(i),
       hov:(e)=>{ if(i!==st.act){ e.currentTarget.style.borderColor='rgba(199,160,82,.55)'; e.currentTarget.style.background='rgba(199,160,82,.06)'; } },
